@@ -22,7 +22,7 @@ services:
       - db-store:/var/lib/mysql
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
-      - MYSQL_DATABASE=laravel_local
+      - MYSQL_DATABASE=demo_db
       - MYSQL_USER=user
       - MYSQL_PASSWORD=password
       - MYSQL_ROOT_PASSWORD=rootpassword
