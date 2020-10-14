@@ -1,5 +1,20 @@
 version: "3.8"
+volumes:
+  db-store:
 services:
+  db:
+    image: mysql:8.0
+    ports:
+      - 33060:3306
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      - MYSQL_DATABASE=demo_db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - TZ=Asia/Tokyo
   app:
     build: ./docker/php
     volumes:
@@ -16,17 +31,4 @@ services:
     working_dir: /work
     depends_on:
       - app
-  db:
-    image: mysql:8.0
-    volumes:
-      - db-store:/var/lib/mysql
-      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    environment:
-      - MYSQL_DATABASE=demo_db
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_ROOT_PASSWORD=rootpassword
-      - TZ=Asia/Tokyo
-volumes:
-  db-store:
 
