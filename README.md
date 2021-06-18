@@ -1,4 +1,5 @@
 # docker-laravel-demo
+
 ```
 $ git clone git@github.com:hakuba20xx/docker-laravel-demo.git
 $ cd docker-laravel-demo
@@ -10,5 +11,5 @@ $ php artisan key:generate
 $ php artisan migrate
 $ exit
 ```
-[http://127.0.0.1:10080](http://127.0.0.1:10080)
 
+[http://127.0.0.1:8080](http://127.0.0.1:8080)
