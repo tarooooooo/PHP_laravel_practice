@@ -13,6 +13,7 @@
           <div class="mt-3">
             <a href="tasks/create" class="btn btn-primary">追加</a>
           </div>
+          @if (count($tasks) > 0)
           <div class="table-responsive mt-3">
             <table class="table table-condensed table-hover mt-2" style="min-width:800px;">
               <thead>
@@ -22,21 +23,21 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach ($tasks as $task)
                 <tr>
-                  <td>洗濯</td> <td>
-                  <a href="tasks/1/edit" class="btn btn-success">編集</a> </td>
+                  <td>{{ $task->name }}</td>
                   <td>
-                  <a href="tasks/1" class="btn btn-danger">削除</a>
-                  </td> </tr>
-                  <tr> <td>掃除</td> <td>
-                  <a href="tasks/2/edit" class="btn btn-success">編集</a> </td>
+                    <a href="tasks/1/edit" class="btn btn-success">編集</a>
+                  </td>
                   <td>
-                  <a href="tasks/2" class="btn btn-danger">削除</a>
+                    <a href="tasks/1" class="btn btn-danger">削除</a>
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
+          @endif
         </div>
       </div>
       <script

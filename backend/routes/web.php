@@ -16,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-// 一覧画面を表示するための設定
-Route::get('/tasks', function () {
-    return  view('tasks.index');
-});
+
+Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index']);
 // 追加画面を表示するための設定
 Route::get('/tasks/create', function () {
     return  view('tasks.create');
