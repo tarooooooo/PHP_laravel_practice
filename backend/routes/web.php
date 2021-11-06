@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// 一覧画面を表示するための設定
+Route::get('/tasks', function () {
+    return  view('tasks.index');
+});
+// 追加画面を表示するための設定
+Route::get('/tasks/create', function () {
+    return  view('tasks.create');
+});
+// 編集画面を表示するための設定
+Route::get('/tasks/{id}/edit', function () {
+    return  view('tasks.edit');
+});
+// 削除画面を表示するための設定
+Route::get('/tasks/{id}', function () {
+    return  view('tasks.show');
+});
