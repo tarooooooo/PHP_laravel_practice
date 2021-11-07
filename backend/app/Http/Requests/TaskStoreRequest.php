@@ -28,4 +28,12 @@ class TaskStoreRequest extends FormRequest
             'name' => 'required|max:200'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'タスク名は必ず入力してください。',
+            'name.max'      => 'タスク名は200文字以内で入力してください。',
+        ];
+    }
 }

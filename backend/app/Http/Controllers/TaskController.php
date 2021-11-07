@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskStoreRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -33,14 +34,15 @@ class TaskController extends Controller
     /**
     * 登録処理
     *
-    * @param  \Illuminate\Http\Request  $request
+    * @param  \Illuminate\Http\TaskStoreRequest  $request
     * @return \Illuminate\Http\Response
     */
-        public function store(Request $request)
+        public function store(TaskStoreRequest $request)
         {
             // 画面で入力されたタスク名で新しいタスクを登録する
             $task = new Task();
-            $task->name = $request->name; $task->save();
+            $task->name = $request->name;
+            $task->save();
             // 一覧画面へリダイレクトする
             return redirect('/tasks');
         }
