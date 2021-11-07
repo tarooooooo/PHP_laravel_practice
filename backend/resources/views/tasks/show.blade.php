@@ -11,12 +11,17 @@
     <div class="container">
       <div class="mt-5">
         <h1>やること削除</h1>
-        <div class="mt-3">
-          <span>洗濯</span>
-        </div>
-        <div class="mt-3">
-          <button type="button" class="btn btn-danger">実行する</button> <a href="/tasks" class="btn btn-secondary ml-2">キャンセル</a>
-        </div>
+        <form action="/tasks/{{ $task->id }}" method="post">
+          @csrf
+          @method('delete')
+          <div class="mt-3">
+            <span>{{ $task->name }}</span>
+          </div>
+          <div class="mt-3">
+            <button type='submit' class="btn btn-danger">実行する</button>
+            <a href="/tasks" class="btn btn-secondary ml-2">キャンセル</a>
+          </div>
+        </form>
       </div>
     </div>
     <script

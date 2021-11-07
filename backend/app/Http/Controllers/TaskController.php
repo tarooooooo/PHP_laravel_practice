@@ -73,5 +73,30 @@ class TaskController extends Controller
             // 一覧画面へリダイレクトする
             return redirect('/tasks');
         }
+    
+    /**
+     * 削除画面表示処理
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+        public function show($id){
+            //データベースのTaskテーブルからidで削除対象を取得する（取得できなければエラーとする）
+            $task = Task::findOrFail($id);
+            //取得したデータを削除画面へ渡す
+            return view('tasks.show')->with('task', $task);
+        }
 
+    /**
+     *削除処理
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+        public function destroy($id){
+            //データベースのTasksテーブルからidで削除対象を取得する(取得できなければエラーとする)
+            $task = Task::findOrFail($id);
+            $task->delete();
+
+            return redirect('/tasks');
+        }
 }

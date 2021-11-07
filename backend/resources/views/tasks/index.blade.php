@@ -30,7 +30,7 @@
                     <a href="tasks/{{ $task->id }}/edit" class="btn btn-success">編集</a>
                   </td>
                   <td>
-                    <a href="tasks/1" class="btn btn-danger">削除</a>
+                    <a href="tasks/{{ $task->id }}" class="btn btn-danger">削除</a>
                   </td>
                 </tr>
                 @endforeach
