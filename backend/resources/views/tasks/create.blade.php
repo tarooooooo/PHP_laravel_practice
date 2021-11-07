@@ -11,13 +11,17 @@
     <div class="container">
       <div class="mt-5">
         <h1>やること追加</h1>
-        <div class="mt-3">
-          <input type="text" name="name" class="form-control" value="" placeholder="やることを入力してください" style="max-width:300px;">
-        </div>
-        <div class="mt-3">
-          <button type="button" class="btn btn-primary">実行する</button>
-          <a href="/tasks" class="btn btn-secondary ml-2">キャンセル</a>
-        </div>
+        <form action='/tasks' method="post">
+          @csrf
+          @method('post')
+          <div class="mt-3">
+            <input type="text" name="name" class="form-control" value="" placeholder="やることを入力してください" style="max-width:300px;">
+          </div>
+          <div class="mt-3">
+            <button type="submit" class="btn btn-primary">実行する</button>
+            <a href="/tasks" class="btn btn-secondary ml-2">キャンセル</a>
+          </div>
+        </form>
       </div>
     </div>
     <script

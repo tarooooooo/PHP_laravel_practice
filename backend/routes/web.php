@@ -16,17 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// 一覧画面表示
 Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index']);
 // 追加画面を表示するための設定
-Route::get('/tasks/create', function () {
-    return  view('tasks.create');
-});
+Route::get('/tasks/create', [App\Http\Controllers \TaskController::class, 'create']);
 // 編集画面を表示するための設定
-Route::get('/tasks/{id}/edit', function () {
-    return  view('tasks.edit');
-});
+Route::get('/tasks/{id}/edit', [App\Http\Controllers \TaskController::class, 'edit']);
 // 削除画面を表示するための設定
-Route::get('/tasks/{id}', function () {
-    return  view('tasks.show');
-});
+Route::get('/tasks/{id}', [App\Http\Controllers \TaskController::class, 'show']);
+//タスク登録
+Route::post('/tasks', [App\Http\Controllers \TaskController::class, 'store']);
+// タスク更新
+Route::patch('/tasks/{id}', [App\Http\Controllers \TaskController::class, 'update']);
+// タスク削除
+Route::delete('/tasks/{id}', [App\Http\Controllers \TaskController::class, 'destroy']);
