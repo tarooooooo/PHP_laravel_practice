@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('hello', function(){
+    return '<html><body><h1>Hello</h1><p>This is sample page.</p></body></html>';
+});
 // // 一覧画面表示
 // Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index']);
 // // 追加画面を表示するための設定
