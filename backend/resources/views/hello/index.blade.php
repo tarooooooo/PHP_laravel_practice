@@ -9,15 +9,18 @@
 </head>
 <body>
    <h1>Blade/Index</h1>
-   @isset ($msg)
-     <p>こんにちは、{{$msg}}さん。</p>
+   <p>&#064;forディレクティブの例</p>
+   <ol>
+   @for ($i = 1;$i < 100;$i++)
+   @if ($i % 2 == 1)
+       @continue
+   @elseif ($i <= 10)
+   <li>No, {{$i}}
    @else
-      <p>何か書いてください。</p>
+       @break
    @endif
-   <form method="POST" action="/hello">
-      @csrf
-      <input type="text" name="msg">
-      <input type="submit">
-  </form>
+   @endfor
+   </ol>
 </body>
+
 </html>
