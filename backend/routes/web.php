@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('hello', 'HelloController@index');
+Route::post('hello', 'HelloController@post');
 // Route::get('hello/{id?}', 'HelloController@index');
 // // 一覧画面表示
 // Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index']);
