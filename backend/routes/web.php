@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 // Route::get('hello/{id?}/{pass?}', 'HelloController@index');
-Route::get('hello', 'HelloController@index');
+Route::get('hello/{id?}', 'HelloController@index');
 // // 一覧画面表示
 // Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index']);
 // // 追加画面を表示するための設定
